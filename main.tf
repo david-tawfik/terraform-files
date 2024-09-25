@@ -9,14 +9,14 @@ terraform {
 
 provider "docker" {}
 
-resource "docker_image" "nginx" {
-  name         = "nginx"
+resource "docker_image" "var.image_name" {
+  name         = "var.image_name"
   keep_locally = false
 }
 
 resource "docker_container" "nginx" {
   count = var.number_of_containers
-  image = docker_image.nginx.latest
+  image = docker_image.var.image_name.var.image_version
   name  = "tutorial_${count.index}"
   ports {
     internal = 80
