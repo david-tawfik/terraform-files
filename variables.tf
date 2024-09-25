@@ -10,3 +10,9 @@ variable "image_name" {
         type = string
         default = "nginx"
 }
+
+variable "image_version" {
+        description = "takes the version of image as string"
+        type = string
+        default = "latest"
+}
