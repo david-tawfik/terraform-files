@@ -14,7 +14,7 @@ resource "docker_image" "image" {
   keep_locally = false
 }
 
-resource "docker_container" "nginx" {
+resource "docker_container" "container" {
   count = var.number_of_containers
   image = docker_image.image.name
   name  = "tutorial_${count.index}"
